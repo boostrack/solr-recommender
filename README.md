@@ -215,7 +215,7 @@ R_a1+ R_a2 = R, assumes a non-weighted linear combination, ideally they are weig
 ## How To Generate Recommendations
 
 1. Set up some data store that you plan to use Solr with. This can be HDFS or a Database or even a local filesystem. I generally use a database because some of the features of Solr will allow the seamless blending if content, metadata, and collaborative filtering to make recommendations.
-2. Store the contents of the item-link-docs csv file in the place you will use solr to index. For me this is a collection in MongoDB representing the items in a catalog. Each of the fields in the CSV (only one if you are not doing --xrecommend) will be stored as an attribute of the item. Ideally store them as a string array. In my case I have to store them as a space delimited sting of item tokens.
+2. Store the contents of the item-link-docs csv file in the place you will use solr to index. For me this is a collection in MongoDB representing the items in a catalog. Each of the fields in the CSV (only one if you are not doing --xrecommend) will be stored as an attribute of the item. Ideally store them as a string array. In my case I have to store them as a space delimited string of item tokens.
 3. Using Solr 4.2 or greater index the collection of items
 4. At runtime when you wish to make recommendations of the simplest form make a fulltext query of the current user's preferred items on the collection of items specifying the query to be on the field where the item-links are kept (the place previously indexed by Solr).
 5. The results of this query will be an ordered list of recommended items.
